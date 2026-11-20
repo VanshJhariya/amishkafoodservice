@@ -1,0 +1,57 @@
+/* =========================================================
+   Responsive: tablet, then phone. Designed for touch, not just shrunk.
+   ========================================================= */
+@media (max-width:1060px){
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr);row-gap:36px}
+  .olist{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr);row-gap:36px}
+  .steps li:nth-child(3)::after{display:none}
+  .foot-in{grid-template-columns:1fr 1fr}
+}
+
+@media (max-width:900px){
+  .links,.nav-r .btn{display:none}
+  .burger{display:block}
+  .sec{padding:84px 0}
+  .hero{padding-top:calc(96px + env(safe-area-inset-top,0px));padding-bottom:56px}
+  .hero-in,.menu-panel,.founder-in,.fr-split{grid-template-columns:1fr;gap:40px}
+  .hero-art{width:min(86%,420px);margin-left:auto;margin-right:auto}
+  .badge{left:-30px;width:118px;height:118px}
+  .badge img{width:48px;height:48px;margin:-24px 0 0 -24px}
+  .coin{right:-16px;width:104px;height:104px}
+  .coin span{font-size:36px}
+  .plans{grid-template-columns:1fr}
+  .plans button{flex-direction:row;align-items:baseline;flex-wrap:wrap;gap:6px 14px}
+  .plans strong{margin-left:auto}
+  .support{grid-template-columns:1fr;gap:20px;margin:56px 0}
+  .pp-price{text-align:left}
+  .founder-in .pic{max-width:380px}
+  .fr{border-radius:32px 32px 0 0;margin-top:-32px;padding-top:96px}
+  .vid{aspect-ratio:4/5;border-radius:28px}
+  .close{border-radius:32px}
+  .dock{display:flex;gap:10px;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:90;transform:translateY(160%);transition:transform .45s var(--ease)}
+  .dock.show{transform:none}
+  .dock .btn{flex:1;padding:14px 12px;font-size:15px}
+  .foot{padding-bottom:96px}
+}
+
+@media (max-width:620px){
+  .wrap{padding:0 18px}
+  .pillars,.olist{grid-template-columns:1fr}
+  .stats{gap:28px 16px}
+  .steps{grid-template-columns:1fr;gap:0}
+  .steps li{padding:0 0 28px 54px}
+  .steps li::before{top:0}
+  .steps li::after{display:block!important;top:36px;bottom:-2px;left:16px;right:auto;width:2px;height:auto;transform-origin:top}
+  .anim .steps li::after{transform:scaleY(0)}
+  .anim .steps li.in::after{transform:scaleY(1)}
+  .steps li:last-child::after{display:none!important}
+  .mi{flex-direction:column;align-items:flex-start}
+  .mi h3 em{display:inline-block;margin:8px 0 0}
+  .foot-in{grid-template-columns:1fr}
+  .oc{min-height:220px}
+  .badge{left:-14px}
+  .cta .btn{flex:1 1 100%}
+  .close .cta .btn{flex:1 1 100%}
+}

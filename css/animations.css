@@ -1,0 +1,37 @@
+/* =========================================================
+   Motion. Initial hidden states only apply when the visitor has not
+   asked for reduced motion (the .anim class is set in <head>).
+   ========================================================= */
+@keyframes marquee{to{transform:translateX(-50%)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-9px) rotate(3deg)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,158,91,.55)}100%{box-shadow:0 0 0 11px rgba(46,158,91,0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+
+.anim .track{animation:marquee 42s linear infinite}
+.anim .marquee:hover .track{animation-play-state:paused}
+.anim .badge svg{animation:spin 24s linear infinite}
+.anim .coin-in{animation:float 5.5s ease-in-out infinite}
+
+/* Hidden until GSAP reveals them */
+.anim [data-reveal]{opacity:0}
+.anim .w>span{visibility:hidden}
+.anim .arch{clip-path:inset(100% 0% 0% 0% round 999px 999px 28px 28px)}
+.anim .badge,.anim .coin{opacity:0}
+
+/* Steps: the connecting line draws itself */
+.anim .steps li::after{transform:scaleX(0);transition:transform 1s var(--ease-io);transition-delay:calc(var(--d,0)*120ms + .35s)}
+.anim .steps li.in::after{transform:scaleX(1)}
+
+/* Menu and plan swaps */
+.anim .menu-panel.swap .mi{animation:fadeUp .55s var(--ease) both;animation-delay:calc(var(--k,0)*80ms)}
+.anim .menu-panel.swap .menu-fig img{animation:fade .6s ease both}
+.anim .pp.swap .pp-head{animation:fade .5s ease both}
+.anim .pp.swap .pp-groups section{animation:fadeUp .55s var(--ease) both;animation-delay:calc(var(--k,0)*70ms + .1s)}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .st.on .dot{animation:none}
+  .drawer,.drawer nav a{transition-duration:.01s}
+}
